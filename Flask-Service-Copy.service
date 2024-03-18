@@ -9,7 +9,6 @@ User = jxp414
 Group = jxp414
 WorkingDirectory = /home/jxp414/CPSC222
 ExecStart = /usr/bin/python3 /home/jxp414/CPSC222/API.py
-Description = Python API Service
 Restart = always
 
 [Install]
