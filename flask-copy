@@ -2,12 +2,12 @@ server{
 	listen 80;
 	server_name 10.0.2.15;
 
-	return 301 https://$host$request;
+	return 301 https://$host$request_uri;
 }
 
 server {
 
-        listen 80;
+        listen 443 ssl;
         server_name 10.0.2.15;
 
 	ssl_certificate /home/jxp414/CPSC222/server.crt;
