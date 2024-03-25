@@ -35,8 +35,5 @@ def groups():
         groups_info[str(group.gr_gid)] = group.gr_name
         return jsonify(groups_info)
 
-@app.route('/')
-def index():
-    return send_file('HTTPS.html')
-if__name__==/__main__':
-    app.run(host='127.0.0.1,port=3000)
+if__name__==/'__main__':
+    app.run(host='172.0.0.1',port=3000)
