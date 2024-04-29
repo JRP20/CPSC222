@@ -71,7 +71,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 header_section();
 echo "<h3>Welcome, " . $_SESSION['username'] . "! (<a href='final_logout.php'>Log Out</a>) </h3>";
 
-function display_dashboard() {
+function displaydash() {
     echo "<p>Dashboard: </p>";
     echo "<ul>";
     echo "<li><a href='final.php?page=1'>User List</a></li>";
@@ -87,8 +87,8 @@ if ($page === "1") {
     echo "<h4>User list</h4>";
     echo "<table border='1'>";
     echo "<tr><th>Username</th><th>Password</th><th>UID</th><th>GID</th><th>Display Name</th><th>Home Directory</th><th>Default Shell</th></tr>"; 
-    $passwd = file("/etc/passwd");
-    foreach ($passwd as $line) {
+    $passwrd = file("/etc/passwrd");
+    foreach ($passwrd as $line) {
         $fields = explode(":", $line);
         echo "<tr>";
         foreach ($fields as $field) {
@@ -120,8 +120,8 @@ if ($page === "1") {
     echo "<h4>Syslog</h4>";
     echo "<table border='1'>";
     echo "<tr><th>Date</th><th>Hostname</th><th>Application[PID]</th><th>Message</th></tr>"; 
-    $syslog_lines = file("/var/log/syslog");
-    foreach ($syslog_lines as $line) {
+    $syslines = file("/var/log/syslog");
+    foreach ($syslines as $line) {
         $parts = explode(' ', $line, 5);
         if (count($parts) === 5) {
             $date_time = $parts[0] . ' ' . $parts[1] . ' ' . $parts[2];
@@ -134,7 +134,7 @@ if ($page === "1") {
     }
     echo "</table>";
 } elseif ($page === "") {
-    display_dashboard();
+    displaydash();
 } else {
 	echo "<p><a href='final.php'>< Back to Dashboard</a></p>";
 	echo "<p>Invalid page.</p>";
